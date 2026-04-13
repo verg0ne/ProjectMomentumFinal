@@ -8,7 +8,7 @@ public class ProjectMomentum : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput" });
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput", "PCG", "PCGGeometryScriptInterop", "GeometryCore", "GeometryFramework"});
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
 
