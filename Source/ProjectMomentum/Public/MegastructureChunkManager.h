@@ -53,7 +53,6 @@ protected:
     virtual void BeginPlay() override;
     virtual void Tick(float DeltaTime) override;
 
-private:
     // ── Pool ────────────────────────────────────────────────────
 
     // All pre-spawned chunk actors. Entries are never null after WarmPool().
@@ -68,6 +67,7 @@ private:
     // ── Internal helpers ────────────────────────────────────────
 
     // Spawns all pool actors at BeginPlay at a far limbo position
+    UFUNCTION(BlueprintCallable)
     void WarmPool();
 
     // Returns a free chunk from the pool, or nullptr if pool is exhausted
