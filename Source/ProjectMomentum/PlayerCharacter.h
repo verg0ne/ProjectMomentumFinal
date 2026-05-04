@@ -6,7 +6,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "PlayerCharacter.generated.h"
 
-// Forward declarations
+
 class UCameraComponent;
 class UInputMappingContext;
 class UInputAction;

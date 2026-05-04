@@ -4,14 +4,11 @@
 #include "Engine/StaticMesh.h"
 #include "DA_WorldParameters.generated.h"
 
-// One entry in the special structure registry.
-// Add new structure types here — no code changes needed elsewhere.
 USTRUCT(BlueprintType)
 struct FStructureEntry
 {
     GENERATED_BODY()
 
-    // Soft class pointer — loads only when the structure is actually picked
     UPROPERTY(EditAnywhere, BlueprintReadOnly)
     TSoftClassPtr<AActor> StructureClass;
 
@@ -34,32 +31,29 @@ class PROJECTMOMENTUM_API UDA_WorldParameters : public UPrimaryDataAsset
     GENERATED_BODY()
 
 public:
-    // ── STREET SHAPE ─────────────────────────────────────────────
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Street Shape")
-    float CorridorWidthMin  = 700.f;   // X axis span, cm
+    float CorridorWidthMin  = 700.f; 
 
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Street Shape")
     float CorridorWidthMax  = 2200.f;
 
-    // Height is Z-axis. Min 1400 = 14m ceiling above floor
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Street Shape")
-    float CorridorHeightMin = 1400.f;  // Z axis height, cm
-
+    float CorridorHeightMin = 1400.f;
+    
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Street Shape")
     float CorridorHeightMax = 4000.f;
 
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Street Shape")
-    float ChunkLength = 10000.f;      // Y axis, cm (100m per chunk)
+    float ChunkLength = 10000.f;
 
-    // ── FACADES ──────────────────────────────────────────────────
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Facades")
-    float LedgeSpacingMin  = 350.f;   // cm, along Z axis on wall
+    float LedgeSpacingMin  = 350.f;
 
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Facades")
     float LedgeSpacingMax  = 700.f;
 
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Facades")
-    float BuildingDepthMin = 400.f;   // cm, along X axis (into void)
+    float BuildingDepthMin = 400.f;
 
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Facades")
     float BuildingDepthMax = 2800.f;
@@ -67,7 +61,6 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Facades", meta=(ClampMin="0.0",ClampMax="1.0"))
     float ProtrusionChance = 0.35f;
 
-    // ── BRIDGES ──────────────────────────────────────────────────
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Bridges")
     int32 BridgeCountMin = 2;
 
@@ -75,23 +68,20 @@ public:
     int32 BridgeCountMax = 6;
 
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Bridges")
-    float BridgeSpanMax  = 1600.f;  // max X span of a bridge
+    float BridgeSpanMax  = 1600.f;
 
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Bridges")
-    float PierSpacing    = 600.f;   // cm between pier columns along X
+    float PierSpacing    = 600.f;
 
-    // ── SPECIAL STRUCTURES ───────────────────────────────────────
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Special Structures", meta=(ClampMin="0.0",ClampMax="1.0"))
     float SpecialStructureChance = 0.18f;
 
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Special Structures")
     TArray<FStructureEntry> SpecialStructureTypes;
 
-    // ── DETAILS ──────────────────────────────────────────────────
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Details")
     float DetailSpawnRadius = 1500.f;
 
-    // ── MESH KITS ─────────────────────────────────────────────────
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Mesh Kits")
     TArray<TSoftObjectPtr<UStaticMesh>> WallMeshKit;
 
